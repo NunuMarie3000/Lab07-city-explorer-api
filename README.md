@@ -25,7 +25,7 @@ In this application, I will be using:
 
 ## Change Log
 
-08-24-2022 time:time - the change
+08-24-2022 10:38pm - commited feature 1 changes to github repo
 
 ## Credit and Collaborations
 
