@@ -28,7 +28,6 @@ In this application, I will be using:
 08-24-2022 time:time - the change
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
 ### Time Estimates
 
@@ -36,8 +35,8 @@ Name of feature: Weather(placeholder)
 
 Estimate of time needed to complete: 3 hours
 
-Start time: 10:03am-12:02pm,5:00pm-
+Start time: 10:03am-12:02pm,5:00pm-rough breaks
 
-Finish time: _____
+Finish time: 10:36pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: approx. 6 hours
