@@ -29,6 +29,7 @@ In this application, I will be using:
 
 08-24-2022 10:38pm - commited feature 1 changes to github repo
 08-25-2022 11:47 - step 1 of lab 8 complete, making axios get request to weatherbit.io to get and send forecast info to the client
+08-26-2022 5:30pm - server deployed to heroku, we have movie information as well
 
 ## Credit and Collaborations
 
@@ -63,3 +64,13 @@ Start time: 10:00am
 Finish time: 5:30pm
 
 Actual time needed to complete: approx. 4 hours
+
+7; Name of feature: Publish
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 6:45
+
+Finish time: 9:50pm
+
+Actual time needed to complete: approx. 3 hours
