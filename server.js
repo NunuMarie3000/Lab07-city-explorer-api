@@ -3,11 +3,8 @@ const app = express();
 const cors = require('cors')
 require('dotenv').config();
 
-const Forecast = require('./forecast')
-// const data = require('./data/weather.json') //this is gonna turn into data from api?
-const getWeather = require('./realWeather')
-const getMovie = require('./movie');
-const pushMovies = require('./pushMovies')
+const weather = require('./forecast')
+const movie = require('./movie');
 
 app.use(express.urlencoded({ extended: false }))
 // parse json
@@ -23,13 +20,12 @@ app.get('/', (req, res) => {
 })
 
 app.get('/weather', async (req, res) => {
+	const getWeather = weather.getWeather
+	const Forecast = weather.Forecast
 	//the url will look like: /weather/?lat=83&lon=7
-	//this is an object that contains the city, lat, and lon
 	try {
 		const { lat, lon } = req.query
-
 		const chosenCity = await getWeather(lat, lon)
-		if (!chosenCity) { res.status(500).send({ error: "Something went wrong from chosenCity" }) }
 		const forecast = new Forecast(chosenCity.data.data[0])
 		res.send(forecast)
 	} catch (error) {
@@ -38,11 +34,11 @@ app.get('/weather', async (req, res) => {
 })
 
 app.get('/movie', async (req, res)=>{
-	// how am i gonna get the city to include?
+	const getMovie = movie.getMovie
+	const pushMovies = movie.pushMovies
 	try {
 		const { city } = req.query
 		const chosenCity_Movie = await getMovie(city)
-		// !chosenCity_Movie &&  res.status(500).send({ error: "Something went wrong from chosenCity_Movie" })
 		const results = pushMovies(chosenCity_Movie.data)
 		res.send(results)
 	} catch (error) {
