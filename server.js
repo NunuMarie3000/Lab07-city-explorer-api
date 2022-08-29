@@ -38,10 +38,12 @@ app.get('/movie', async (req, res)=>{
 	const pushMovies = movie.pushMovies
 	try {
 		const { city } = req.query
-		const chosenCity_Movie = await getMovie(city)
+		const chosenCity_Movie = await getMovie(city) //this is working
 		const results = pushMovies(chosenCity_Movie.data)
+		console.log(results)
 		res.send(results)
 	} catch (error) {
+		console.log(error)
 		res.status(500).send(error)
 	}
 })
