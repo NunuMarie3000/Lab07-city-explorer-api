@@ -32,6 +32,7 @@ In this application, I will be using:
 08-25-2022 11:47 - step 1 of lab 8 complete, making axios get request to weatherbit.io to get and send forecast info to the client
 08-26-2022 5:30pm - server deployed to heroku, we have movie information as well
 08-29-2022 8:46 - modularized functions
+8-29-2022 4:30pm - 7 day forecast
 
 ## Credit and Collaborations
 
