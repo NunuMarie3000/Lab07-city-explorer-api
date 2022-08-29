@@ -15,7 +15,7 @@ const getWeather = (lat, lon) => {
 class Forecast {
 	constructor(chosenCity) {
 		this.date = chosenCity.valid_date;
-		this.description = `The temperature right now is ${chosenCity.temp} with a high of ${chosenCity.high_temp} and a low of ${chosenCity.low_temp}, but could feel anywhere between ${chosenCity.app_min_temp} and ${chosenCity.app_max_temp} with ${chosenCity.weather.description.toLowerCase()}`;
+		this.description = `The median temperature for ${chosenCity.valid_date} is going to be ${chosenCity.temp} with a high of ${chosenCity.high_temp} and a low of ${chosenCity.low_temp}, but could feel anywhere between ${chosenCity.app_min_temp} and ${chosenCity.app_max_temp} with ${chosenCity.weather.description.toLowerCase()}`;
 	}
 }
 
