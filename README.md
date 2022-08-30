@@ -33,6 +33,7 @@ In this application, I will be using:
 08-26-2022 5:30pm - server deployed to heroku, we have movie information as well
 08-29-2022 8:46 - modularized functions
 8-29-2022 4:30pm - 7 day forecast
+8-30-2022 11:30am - introduced middleware to cache api results to avoid additional unneccesary api calls
 
 ## Credit and Collaborations
 
@@ -87,3 +88,13 @@ Start time: 8:35am
 Finish time: 8:46am
 
 Actual time needed to complete: 11 minutes
+
+6.Name of feature: Performance: As a user, I want the application to work with recent results, so that I can see info without the app doing unnecessary API calls.
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 11:10am
+
+Finish time: 12:25
+
+Actual time needed to complete: approx. 1 hour
