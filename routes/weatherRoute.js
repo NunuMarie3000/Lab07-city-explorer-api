@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router()
 const weather = require('../forecast')
 
-router.get('/weather', async (req, res) => {
+const setCache = require('./cache')
+
+router.get('/weather', setCache() ,async (req, res) => {
 	const getWeather = weather.getWeather
 	const pushForecast = weather.pushForecast
 	// const Forecast = weather.Forecast

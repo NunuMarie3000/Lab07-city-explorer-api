@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const movie = require('../movie');
+const setCache = require('./cache')
 
-router.get('/movie', async (req, res)=>{
+router.get('/movie', setCache(), async (req, res)=>{
 	const getMovie = movie.getMovie
 	const pushMovies = movie.pushMovies
   const { city } = req.query
