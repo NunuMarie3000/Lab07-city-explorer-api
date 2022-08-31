@@ -98,3 +98,13 @@ Start time: 11:10am
 Finish time: 12:25
 
 Actual time needed to complete: approx. 1 hour
+
+7.Name of feature: STRETCH: As a user of City Explorer, I want to see info about restaurants in the city I searched, so that I find the best places to eat.
+
+Estimate of time needed to complete: 2 hours
+
+Start time:
+
+Finish time:
+
+Actual time needed to complete:

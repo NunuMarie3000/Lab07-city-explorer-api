@@ -1,16 +1,29 @@
 const axios = require('axios')
+const cache = require('../caches/cache')
+// i wanna get a 7 day forecast
+const getWeather = (lat, lon) => {
+	const key = 'weather-' + lat + lon;
+	const API = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&days=7&units=I&key=${process.env.WEATHER_API_KEY}`
 
+	if(cache[key] && (Date.now() - cache[key].timestamp < 50000)){
+		console.log('Cache hit');
+		return cache[key].data
+	}else{
+		const weatherInfo = axios.get(API).catch((err)=>console.log('Something went wrong from getWeather', err))
+		console.log('Cache miss')
+		cache[key] = {}
+		cache[key].timestamp = Date.now()
+		cache[key].data = weatherInfo
+		return weatherInfo
+	}
+}
+
+// MY ORIGINAL GETWEATHER FUNCTION
 // const getWeather = (lat, lon) => {
-// 	const API = `http://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&units=I`
+// 	const API = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&days=7&units=I&key=${process.env.WEATHER_API_KEY}`
 // 	const weatherInfo = axios.get(API).catch((err) => console.log('Error: something went wrong from getWeather at server', err))
 // 	return weatherInfo
 // }
-// i wanna get a 7 day forecast
-const getWeather = (lat, lon) => {
-	const API = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&days=7&units=I&key=${process.env.WEATHER_API_KEY}`
-	const weatherInfo = axios.get(API).catch((err) => console.log('Error: something went wrong from getWeather at server', err))
-	return weatherInfo
-}
 
 class Forecast {
 	constructor(chosenCity) {
