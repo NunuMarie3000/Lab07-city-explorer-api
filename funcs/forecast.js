@@ -5,9 +5,13 @@ const getWeather = (lat, lon) => {
 	const key = 'weather-' + lat + lon;
 	const API = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&days=7&units=I&key=${process.env.WEATHER_API_KEY}`
 
-	if(cache[key] && (Date.now() - cache[key].timestamp < 50000)){
-		console.log('Cache hit');
-		return cache[key].data
+	if(cache[key]){
+		if(Date.now() - cache[key].timestamp >= 86400000){
+			delete cache[key]
+		}else{
+			console.log('Cache hit');
+			return cache[key].data
+		}
 	}else{
 		const weatherInfo = axios.get(API).catch((err)=>console.log('Something went wrong from getWeather', err))
 		console.log('Cache miss')

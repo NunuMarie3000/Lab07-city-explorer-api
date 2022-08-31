@@ -5,9 +5,14 @@ const getMovie = (city) => {
 	const key = 'city-' + city
 	const API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&language=en-US&query=${city}&page=1`
 
-	if(movieCache[key] && (Date.now() - movieCache[key].timestamp < 50000)){
-		console.log('Cache hit');
-		return movieCache[key].data
+	// i wanna delete movies from cache if its been there longer than 24 hours
+	if(movieCache[key]){
+		if(Date.now() - movieCache[key].timestamp >= 86400000){
+			delete movieCache[key]
+		}else{
+			console.log('Cache hit');
+			return movieCache[key].data
+		}
 	}else{
 		const movieInfo = axios.get(API).catch((err) => console.log('Error: something went wrong from getMovie at server', err))
 		console.log('Cache miss')
@@ -16,6 +21,18 @@ const getMovie = (city) => {
 		movieCache[key].data = movieInfo
 		return movieInfo
 	}
+	// //with 50,000, its only getting results if the timestamp is less than 50 seconds old, i want 24 hours, 8.64e+7?
+	// if(movieCache[key] && (Date.now() - movieCache[key].timestamp < 86400000)){
+	// 	console.log('Cache hit');
+	// 	return movieCache[key].data
+	// }else{
+	// 	const movieInfo = axios.get(API).catch((err) => console.log('Error: something went wrong from getMovie at server', err))
+	// 	console.log('Cache miss')
+	// 	movieCache[key] = {}
+	// 	movieCache[key].timestamp = Date.now()
+	// 	movieCache[key].data = movieInfo
+	// 	return movieInfo
+	// }
 }
 
 class movieClass {
