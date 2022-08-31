@@ -5,7 +5,7 @@ const getYelp = yelp.getYelp
 const pushYelp = yelp.pushYelp
 // const setCache = require('./cache')
 
-router.get('/yelp', async (req, res)=>{
+router.get('/food', async (req, res)=>{
 	try {
 		const { city } = req.query
 		const cityYelp = await getYelp(city)
