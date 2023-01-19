@@ -3,10 +3,10 @@ const app = express();
 const cors = require('cors')
 require('dotenv').config();
 
-const home = require('./routes/homeRoute')
-const weather = require('./routes/weatherRoute')
-const movie = require('./routes/movieRoute')
-const yelp = require('./routes/yelpRoute')
+const home = require('../routes/homeRoute')
+const weather = require('../routes/weatherRoute')
+const movie = require('../routes/movieRoute')
+const yelp = require('../routes/yelpRoute')
 
 app.use(express.urlencoded({ extended: false }))
 // parse json
