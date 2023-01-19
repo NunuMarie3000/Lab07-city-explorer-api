@@ -1,4 +1,8 @@
 {
   "appService.defaultWebAppToDeploy": "/subscriptions/a4bbdd07-17d2-4cba-bdd1-8f01dccce2e0/AppServices/subscriptions/a4bbdd07-17d2-4cba-bdd1-8f01dccce2e0/resourceGroups/Cohort001_RG/providers/Microsoft.Web/sites/cityExplorerAPI",
-  "appService.deploySubpath": "."
+  "appService.deploySubpath": ".",
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ]
 }
